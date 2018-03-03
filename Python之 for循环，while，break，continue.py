@@ -92,6 +92,30 @@ for x in ['A', 'B', 'C']:
 #C2
 #C3
 
+for i in range(3):
+    print(i)
+#0
+#1
+#2
+#range(n)  从0开始的（n-0）个数
+
+for x in range(1, 3):
+    print(x)
+#1
+#2
+#range(m,n)  从m开始的（n-m）个数
+
+listC = [i for i in range(1,30,3)]
+print(listC)  #[1, 4, 7, 10, 13, 16, 19, 22, 25, 28]
+listC = [i+1 for i in range(1,30,3)]
+print(listC)  #[2, 5, 8, 11, 14, 17, 20, 23, 26, 29]
+#range(m,n,d)  从m开始，步长为d，一直到n
+
+test_list = [1,3,4,'abc',3,6,23,'hello',2]
+for i in range(len(test_list)):
+    print(test_list[i],end=',')
+#1,3,4,abc,3,6,23,hello,2,
+
 #对100以内的两位数，请使用一个两重循环打印出所有十位数数字比个位数数字小的数，例如，23（2 < 3）。
 for x in range(1, 9):
     for y in range(x + 1, 10):
