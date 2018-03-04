@@ -99,15 +99,34 @@ for i in d:
         print(i)
 
 #dict是可变的，也就是说，我们可以随时往dict中添加新的 key-value。
+d = {
+    'Adam': 95,
+    'Lisa': 85,
+    'Bart': 59
+}
+d['Paul'] = 72
+print(d)  #{'Adam': 95, 'Lisa': 85, 'Bart': 59, 'Paul': 72}
+#如果 key 已经存在，则赋值会用新的 value 替换掉原来的 value：
+d['Bart'] = 60
+print(d)  #{'Adam': 95, 'Lisa': 85, 'Bart': 60, 'Paul': 72}
 
+#直接使用for循环可以遍历 dict 的 key：
+d = {
+    'Adam': 95,
+    'Lisa': 85,
+    'Bart': 59
+}
+for key in d:
+    print(key)
+#Adam
+#Lisa
+#Bart
 
-
-
-
-
-
-
-
-
-
-
+#用 for 循环遍历如下的dict，打印出 name: score
+d = {
+    'Adam': 95,
+    'Lisa': 85,
+    'Bart': 59
+}
+for key in d:
+    print(key+':'+str(d.get(key)))
