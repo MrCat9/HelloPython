@@ -159,18 +159,36 @@ print(int('123', 8))  #83
 #但是在需要的时候，又可以传入额外的参数来覆盖默认参数值。
 
 #定义一个计算 x 的N次方的函数:
+def power(x, n):
+    s = 1
+    while n > 0:
+        n = n - 1
+        s = s * x
+    return s
 
+print(power(2, 2))  #4
 
+#假设计算平方的次数最多，我们就可以把 n 的默认值设定为 2：
+def power(x, n = 2):
+    s = 1
+    while n > 0:
+        n = n - 1
+        s = s * x
+    return s
+#这样一来，计算平方就不需要传入两个参数了：
+print(power(3))  #9
 
+#由于函数的参数按从左到右的顺序匹配，所以默认参数只能定义在必需参数的后面
 
+#定义一个 greet() 函数，它包含一个默认参数，如果没有传入，打印 'Hello, world.'，如果传入，打印 'Hello, xxx.'
+def greet(name='world'):
+    print('Hello, %s.' %name)
 
+greet()  #Hello, world.
+greet('Bart')  #Hello, Bart.
 
-
-
-
-
-
-
+#定义可变参数
+#
 
 
 
