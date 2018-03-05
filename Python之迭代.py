@@ -67,7 +67,7 @@ for index, name in enumerate(L):
 
 #或者
 L = ['Adam', 'Lisa', 'Bart', 'Paul']
-N = range(1, 5)
+N = range(1, len(L)+1)  #len(L)=4
 
 print(list(zip(N,L)))
 
