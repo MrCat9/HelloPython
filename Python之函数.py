@@ -188,9 +188,45 @@ greet()  #Hello, world.
 greet('Bart')  #Hello, Bart.
 
 #定义可变参数
-#
+#如果想让一个函数能接受任意个参数，我们就可以定义一个可变参数：
+def fn(*args):
+    print(args)
 
+fn()              #()
+fn('a', 'b')      #('a', 'b')
+fn(1,'str',True)  #(1, 'str', True)
 
+#可变参数的名字前面有个 * 号，我们可以传入0个、1个或多个参数给可变参数
+#可变参数也不是很神秘，Python解释器会把传入的一组参数组装成一个tuple传递给可变参数，
+#因此，在函数内部，直接把变量 args 看成一个 tuple 就好了。
+#定义可变参数的目的也是为了简化调用。
 
+#假设我们要计算任意个数的平均值，就可以定义一个可变参数：
+def average(*args):
+    if args is None or len(args) == 0:
+        return 0.0
+    sum = 0.0
+    for num in args:
+        sum = sum + num
+    return sum / len(args)
 
+print(average())  #0.0
+print(average(1, 2))  #1.5
+print(average(1, 2, 2, 3, 4))  #2.4
 
+#或者
+def average(*args):
+    if args:
+        return sum(args)*1.0/len(args)
+    else:
+        return 0.0
+
+print(average())
+print(average(1, 2))
+print(average(1, 2, 2, 3, 4))
+
+#注意：
+t = ()
+print(t)  #()
+print(t is None)  #False
+print(len(t))  #0
