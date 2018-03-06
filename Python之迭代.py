@@ -75,19 +75,82 @@ for index, name in zip(N, L):
     print(str(index)+'-'+name)
 
 #迭代dict的value
-#
+d = { 'Adam': 95, 'Lisa': 85, 'Bart': 59 }
+print(list(d.values()))
+#[95, 85, 59]
 
+d = { 'Adam': 95, 'Lisa': 85, 'Bart': 59 }
+for v in d.values():
+    print(v)
+#95
+#85
+#59
 
+#values() 方法实际上把一个 dict 转换成了包含 value 的list。
+#python 3 中取消了dict 的itervalues()方法
 
+L = [('a','b'),('c','d')]
+d = dict(L)
+print(d)  #{'a': 'b', 'c': 'd'}
 
+L = ['a','b','c','d']
+d = dict(L)  #报错
 
+#在Python中，for 循环可作用的迭代对象远不止 list，tuple，str，unicode，dict等，
+#任何可迭代对象都可以作用于for循环，而内部如何迭代我们通常并不用关心。
+#如果一个对象说自己可迭代，那我们就直接用 for 循环去迭代它，
+#可见，迭代是一种抽象的数据操作，它不对迭代对象内部的数据有任何要求。
 
+#给定一个dict，请计算所有同学的平均分。
+d = { 'Adam': 95, 'Lisa': 85, 'Bart': 59, 'Paul': 74 }
+print(d)
+if len(d) == 0 or d is None:
+    print(0)
+else:
+    print(sum(d.values())/len(d))
 
+#或者
+d = { 'Adam': 95, 'Lisa': 85, 'Bart': 59, 'Paul': 74 }
 
+sum = 0.0
+for x in d.values():
+    sum = sum + x 
 
+if len(d) == 0 or d is None:
+    print(0)
+else:
+    print(sum/len(d))
 
+#迭代dict的key和value
+#dict 对象的 items() 方法
+d = { 'Adam': 95, 'Lisa': 85, 'Bart': 59 }
 
+print(list(d.items()))  #[('Adam', 95), ('Lisa', 85), ('Bart', 59)]
+print(d.items())  #dict_items([('Adam', 95), ('Lisa', 85), ('Bart', 59)])
 
+for v in d.items():
+    print(v)  #('Adam', 95)
+              #('Lisa', 85)
+              #('Bart', 59)
+for name, score in d.items():
+    print(name+str(score))  #Adam95
+                            #Lisa85
+                            #Bart59
 
+#python 3 中取消了dict的iteritems()方法
 
-
+#打印出 name : score，最后再打印出平均分 average : score。
+d = { 'Adam': 95, 'Lisa': 85, 'Bart': 59, 'Paul': 74 }
+sum = 0.0
+for k, v in d.items():
+    sum = sum + v
+    print(k, ':', v)
+if len(d) == 0 or d is None:
+    print('average', ':', 0)
+else:
+    print('average', ':', sum/len(d))
+#Adam : 95
+#Lisa : 85
+#Bart : 59
+#Paul : 74
+#average : 78.25
